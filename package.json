@@ -4,5 +4,8 @@
   "description": "Microservice for Rung to handle interactive, event-based apps",
   "main": "dist/index.js",
   "author": "Marcelo Camargo <marcelo.camargo@ngi.com.br>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "0.25.0"
+  }
 }
