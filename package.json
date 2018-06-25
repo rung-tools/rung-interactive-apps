@@ -5,7 +5,13 @@
   "main": "dist/index.js",
   "author": "Marcelo Camargo <marcelo.camargo@ngi.com.br>",
   "license": "MIT",
+  "scripts": {
+    "build": "lsc -cb -o dist src"
+  },
   "dependencies": {
     "ramda": "0.25.0"
+  },
+  "devDependencies": {
+    "livescript": "1.5.0"
   }
 }
