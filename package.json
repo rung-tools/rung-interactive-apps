@@ -1,0 +1,8 @@
+{
+  "name": "rung-interactive-apps",
+  "version": "0.1.0",
+  "description": "Microservice for Rung to handle interactive, event-based apps",
+  "main": "dist/index.js",
+  "author": "Marcelo Camargo <marcelo.camargo@ngi.com.br>",
+  "license": "MIT"
+}
