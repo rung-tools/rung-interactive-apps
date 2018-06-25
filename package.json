@@ -12,6 +12,8 @@
     "ramda": "0.25.0"
   },
   "devDependencies": {
-    "livescript": "1.5.0"
+    "chai": "4.1.2",
+    "livescript": "1.5.0",
+    "mocha": "5.2.0"
   }
 }
