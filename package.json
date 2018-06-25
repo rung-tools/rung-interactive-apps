@@ -9,6 +9,7 @@
     "build": "lsc -cb -o dist src"
   },
   "dependencies": {
+    "amqplib": "0.5.2",
     "ramda": "0.25.0"
   },
   "devDependencies": {
