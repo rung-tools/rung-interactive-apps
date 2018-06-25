@@ -6,7 +6,8 @@
   "author": "Marcelo Camargo <marcelo.camargo@ngi.com.br>",
   "license": "MIT",
   "scripts": {
-    "build": "lsc -cb -o dist src"
+    "build": "lsc -cb -o dist src",
+    "watch": "lsc -cwb -o dist src"
   },
   "dependencies": {
     "amqplib": "0.5.2",
