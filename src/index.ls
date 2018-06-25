@@ -11,3 +11,9 @@ process.on \unhandledException, bail
 
 do function start
     logger.info "environment is #{JSON.stringify config, null, 2}"
+    amqp.connect "amqp://#{config.rabbitmq-host}"
+        .then (.create-channel!)
+        .tap (.assert-queue config.session-queue)
+        .tap (-> logger.info "consuming messages from #{config.session-queue}")
+        .then (channel) ->
+            console.log channel
