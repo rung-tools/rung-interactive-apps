@@ -1,11 +1,13 @@
-#!/usr/bin/env node
-require! 'amqplib/callback_api': amqp
+require! amqplib: amqp
+require! './config': config
+require! './logger': logger
 
-_, connection <- amqp.connect 'amqp://localhost'
-_, channel <- connection.create-channel
+bail = ({stack}) !->
+    logger.error stack
+    process.exit 1
 
-channel.assert-queue 'hello', durable: no
-channel.send-to-queue 'hello', (new Buffer 'Foo!')
+process.on \uncaughtException, bail
+process.on \unhandledException, bail
 
-console.log 'yaaay'
-
+do function start
+    logger.info "environment is #{JSON.stringify config, null, 2}"
