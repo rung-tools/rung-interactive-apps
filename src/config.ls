@@ -1,11 +1,9 @@
 localhost = '127.0.0.1'
 
 module.exports =
-    host:
-        redis: process.env.REDIS_HOST or localhost
-        mongo: process.env.MONGO_HOST or localhost
-        rabbitmq: process.env.RABBITMQ_HOST or localhost
-    exchange:
-        parameters: process.env.PARAMETERS_EXCHANGE or 'parameters'
+    mongo:
+        host: process.env.MONGO_HOST or localhost
+        port: process.env.MONGO_PORT or '27017'
+        db: process.env.MONGO_DB or 'rung'
     to-string: ->
         JSON.stringify @, null, 2
