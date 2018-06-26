@@ -5,3 +5,5 @@ module.exports =
     mongo-host: process.env.MONGO_HOST or localhost
     rabbitmq-host: process.env.RABBITMQ_HOST or localhost
     session-queue: process.env.QUEUE_NAME or 'session-queue'
+    to-string: ->
+        JSON.stringify @, null, 2
