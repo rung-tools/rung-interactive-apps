@@ -11,13 +11,15 @@
   },
   "dependencies": {
     "amqplib": "0.5.2",
+    "bluebird": "3.5.1",
+    "mongodb": "3.0.10",
     "ramda": "0.25.0",
-    "rung-cli": "1.4.0"
+    "rung-cli": "1.4.0",
+    "winston": "3.0.0"
   },
   "devDependencies": {
     "chai": "4.1.2",
     "livescript": "1.5.0",
-    "mocha": "5.2.0",
-    "winston": "3.0.0"
+    "mocha": "5.2.0"
   }
 }
