@@ -1,5 +1,5 @@
 require! amqplib: amqp
-require! './config': config
+require! './consumer': consumer
 require! './logger': logger
 
 bail = ({stack}) !->
@@ -9,11 +9,4 @@ bail = ({stack}) !->
 process.on \uncaughtException, bail
 process.on \unhandledException, bail
 
-do function start
-    logger.info "environment is #{JSON.stringify config, null, 2}"
-    amqp.connect "amqp://#{config.rabbitmq-host}"
-        .then (.create-channel!)
-        .tap (.assert-queue config.session-queue)
-        .tap (-> logger.info "consuming messages from #{config.session-queue}")
-        .then (channel) ->
-            console.log channel
+do consumer.start

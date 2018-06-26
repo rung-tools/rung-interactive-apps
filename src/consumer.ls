@@ -2,13 +2,20 @@ require! amqplib: amqp
 require! './config': config
 require! './logger': logger
 
-start = ->
+exchange = config.exchange.parameters
+
+export start = ->
     logger.info "starting consumer with config #{config}"
-    amqp.connect "amqp://#{config.rabbitmq-host}"
+    amqp.connect "amqp://#{config.host.rabbitmq}"
         .then (.create-channel!)
-        .tap (.assert-queue config.session-queue, durable: no)
-        .tap (-> logger.info "consuming messages from #{config.session-queue}")
-        .then (.consume do
-            config.session-queue
-            (message) -> logger.info "received #{message.content}"
-            no-ack: yes)
+        .tap (.assert-exchange exchange, \fanout, durable: no)
+        .then (channel) ->
+            channel.assert-queue '', exclusive: yes
+                .then ({queue}) ->
+                    logger.info "waiting for messages in #queue"
+                    channel.bind-queue queue, exchange, ''
+                    channel.consume do
+                        queue
+                        (message) ->
+                            logger.info " received #{message.content}"
+                        no-ack: yes
