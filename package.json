@@ -15,6 +15,7 @@
     "mongodb": "3.0.10",
     "ramda": "0.25.0",
     "rung-cli": "1.4.0",
+    "uuid": "3.3.0",
     "winston": "3.0.0"
   },
   "devDependencies": {
